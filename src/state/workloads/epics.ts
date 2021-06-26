@@ -35,27 +35,25 @@ const cancelWorkload: AppEpic = (action$) =>
 	  })
 	);
 
-	const monitorWorkload: AppEpic = (action$) =>
-			action$.pipe(
-				filter(
-					isActionOf(created)
-					),
-				mergeMap(
-					({ payload: { id, completeDate } }) =>	from(new Promise(resolve => setTimeout(() => resolve(true), 0))).pipe(	
-						delay(completeDate),
-						mergeMap(async () => {
-									const workLoad = await workloadService.checkStatus({id});
-									return updateStatus({id: workLoad.id, status: workLoad.status});
-						}))
-						)
-					);
+const pollWorkload: AppEpic = (action$) =>
+	action$.pipe(
+		filter(isActionOf(created)),
+		mergeMap(
+			({ payload: { id, completeDate } }) =>	from(new Promise(resolve => setTimeout(() => resolve(true), 0))).pipe(	
+				delay(completeDate),
+				mergeMap(async () => {
+							const workLoad = await workloadService.checkStatus({id});
+							return updateStatus({id: workLoad.id, status: workLoad.status});
+				}))
+				)
+			);
 
 
 
 export const epics = combineEpics(
   startWorkload,
   cancelWorkload,
-  monitorWorkload
+  pollWorkload
 );
 
 export default epics;
