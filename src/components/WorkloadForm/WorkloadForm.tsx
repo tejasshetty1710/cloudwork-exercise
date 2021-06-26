@@ -2,7 +2,7 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { submit } from '../../state/workloads/actions';
-
+import './WorkloadForm.css';
 
 interface WorkloadFormDispatchProps {
   submitWorkload: (complexity: number) => void  
@@ -30,25 +30,26 @@ class WorkloadForm extends React.PureComponent<WorkloadFormProps, WorkloadFormSt
 
   render() {
     return (
-      <form>
-        <h2>Create workload</h2>
+      <form className="workload-form">
+        <h2 className="workload-form-title">Create workload</h2>
         
-        <div>
+        <div className="workload-form-slider">
           <label>
             Complexity: {this.state.complexity}
             <br />
             <input 
+            className="slider"
               value={this.state.complexity} 
               onChange={(e) => this.setState({ complexity: Number(e.target.value) })} 
               type="range" 
               min="1" 
-              max="10" 
+              max="100" 
             />
           </label>
         </div>
 
         <div>
-          <button onClick={this.handleSubmit} type="submit">Start work</button>
+          <button className="workload-form-button" onClick={this.handleSubmit} type="submit">Start work</button>
         </div>
       </form>
     );

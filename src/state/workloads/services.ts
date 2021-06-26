@@ -21,6 +21,7 @@ export class WorkloadService {
 
 
   public create({ complexity }: { complexity: number }) {
+    console.log(this)
     const id = this.counter++;
     const status: Status = 'WORKING';
 
