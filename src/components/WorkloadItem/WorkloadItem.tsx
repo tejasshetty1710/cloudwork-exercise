@@ -21,7 +21,7 @@ export interface WorkloadItemProps extends
 
 
 const WorkloadItem: React.SFC<WorkloadItemProps> = (props) => (
-  <div className="workload-item">
+  <div className={`workload-item ${props.status.toLowerCase()}`}>
     <div className="workload-item-details">
       <h3 className="WorkloadItem-heading">Workload #{props.id}</h3>
       <span className="WorkloadItem-subHeading">Complexity: {props.complexity}</span>
