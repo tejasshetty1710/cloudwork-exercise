@@ -1,1 +1,6 @@
-export type Status = 'WORKING' | 'SUCCESS' | 'FAILURE' | 'CANCELED';
+export enum Status {
+    WORKING = 'WORKING',
+    CANCELLED = 'CANCELLED',
+    SUCCESS = 'SUCCESS',
+    FAILURE = 'FAILURE'
+}

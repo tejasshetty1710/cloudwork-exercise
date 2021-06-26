@@ -3,10 +3,24 @@
     width: 100%;
     border: 3px solid #4844ee;
     margin-bottom: 1rem;
+    border-radius: 1rem;
     display: flex;
     min-height: 5rem;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 0 4px 0 rgb(17 22 26 / 16%), 0 2px 4px 0 rgb(17 22 26 / 8%), 0 4px 8px 0 rgb(17 22 26 / 8%);
+}
+
+.workload-item.success{
+    border-color: #12ca83;
+}
+
+.workload-item.failure{
+    border-color: #cf4d4d;
+}
+
+.workload-item.cancelled{
+    border-color: #75756f;
 }
 
 .WorkloadItem-heading {
@@ -17,11 +31,11 @@
 
 .WorkloadItem-secondaryButton {
     color:#4844ee;
-    padding: 12px 15px;
+    padding: 8px 12px;
     font-size: 15px;
     background-color: #b5bcf8;
     cursor: pointer;
-    border-radius: 0;
+    border-radius: 10px;
     border:none;
 }
 

@@ -14,9 +14,7 @@ const startWorkload: AppEpic = (action$) => (
 	action$.pipe(
     filter(isActionOf(submit)),
     mergeMap(async ({ payload }) => {
-		console.log(payload, 'sfd')
 		const createdWorkLoad = await workloadService.create({complexity: payload.complexity});
-		console.log(createdWorkLoad, 'sfd')
 		return created(createdWorkLoad);
 	})
   )
@@ -42,11 +40,12 @@ const pollWorkload: AppEpic = (action$) =>
 			({ payload: { id, completeDate } }) =>	from(new Promise(resolve => setTimeout(() => resolve(true), 0))).pipe(	
 				delay(completeDate),
 				mergeMap(async () => {
-							const workLoad = await workloadService.checkStatus({id});
-							return updateStatus({id: workLoad.id, status: workLoad.status});
-				}))
-				)
-			);
+					const workLoad = await workloadService.checkStatus({id});
+					return updateStatus({id: workLoad.id, status: workLoad.status});
+				})
+			)
+		)
+	);
 
 
 

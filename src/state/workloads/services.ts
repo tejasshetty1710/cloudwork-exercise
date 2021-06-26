@@ -15,15 +15,15 @@ export class WorkloadService {
 
   private completeWorkload(work: Work) {
     work.status = work.id % 2
-      ? 'FAILURE'
-      : 'SUCCESS';
+      ? Status.FAILURE
+      : Status.SUCCESS;
   }
 
 
   public create({ complexity }: { complexity: number }) {
     console.log(this)
     const id = this.counter++;
-    const status: Status = 'WORKING';
+    const status: Status = Status.WORKING;
 
     const milliseconds = complexity * 1000;
     const completeDate = moment().add(complexity, 'second').toDate();
@@ -53,7 +53,7 @@ export class WorkloadService {
     if (work.status !== 'WORKING') return Promise.reject('Workload cannot be canceled');
 
     clearTimeout(work.timer)
-    work.status = 'CANCELED';
+    work.status = Status.CANCELLED;
 
     return Promise.resolve(work);
   }
