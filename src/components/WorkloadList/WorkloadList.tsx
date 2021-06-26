@@ -25,7 +25,7 @@ const WorkloadList: React.SFC<WorkloadListProps> = ({ workloads, cancelWorkload 
       <span>No workloads to display</span>
     )
   : (
-    <ol>
+    <ol className="workLoadList-wrapper">
       {workloads.map((workload) => (
         <li key={workload.id}>
           <WorkloadItem {...workload} onCancel={() => cancelWorkload(workload.id)} />

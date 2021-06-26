@@ -17,7 +17,7 @@ interface WorkloadFormState {
 
 class WorkloadForm extends React.PureComponent<WorkloadFormProps, WorkloadFormState> {
   defaultState = {
-    complexity: 5,
+    complexity: 10,
   }
 
   state = this.defaultState;
@@ -31,7 +31,7 @@ class WorkloadForm extends React.PureComponent<WorkloadFormProps, WorkloadFormSt
   render() {
     return (
       <form>
-        <h2>Create workload</h2>
+        <h2>Create a workload</h2>
         
         <div>
           <label>
@@ -43,12 +43,13 @@ class WorkloadForm extends React.PureComponent<WorkloadFormProps, WorkloadFormSt
               type="range" 
               min="1" 
               max="10" 
+              className="container-form__input"
             />
           </label>
         </div>
 
         <div>
-          <button onClick={this.handleSubmit} type="submit">Start work</button>
+          <button onClick={this.handleSubmit} type="submit" className={"container-form__button"}>Start work</button>
         </div>
       </form>
     );
