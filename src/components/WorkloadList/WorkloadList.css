@@ -1,0 +1,14 @@
+.workload-list-wrapper {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem 0 0;
+}
+
+.workload-list {
+    list-style-type: none;
+}
+.workload-list-title {
+   margin-bottom: 1rem;
+   font-weight: 400;
+}

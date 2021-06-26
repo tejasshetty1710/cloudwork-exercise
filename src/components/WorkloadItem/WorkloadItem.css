@@ -1,0 +1,41 @@
+.workload-item {
+    padding: 0.6rem;
+    width: 100%;
+    border: 3px solid #4844ee;
+    margin-bottom: 1rem;
+    display: flex;
+    min-height: 5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.WorkloadItem-heading {
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+}
+
+
+.WorkloadItem-secondaryButton {
+    color:#4844ee;
+    padding: 12px 15px;
+    font-size: 15px;
+    background-color: #b5bcf8;
+    cursor: pointer;
+    border-radius: 0;
+    border:none;
+}
+
+.WorkloadItem-statusText {
+    font-weight: bold;
+    color:#4844ee;
+} 
+
+.workload-item-status-time {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.workload-item-status {
+    display: flex;
+    align-items: center;
+}
